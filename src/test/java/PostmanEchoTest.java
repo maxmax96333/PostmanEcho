@@ -6,7 +6,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class PostmanEchoTest {
 
     @Test
-    public void postRequestShouldFail() {
+    public void postRequestShouldReturnSameData() {
         given()
                 .baseUri("https://postman-echo.com")
                 .body("some data")
@@ -14,6 +14,6 @@ public class PostmanEchoTest {
                 .post("/post")
                 .then()
                 .statusCode(200)
-                .body("data", equalTo("wrong data")); // Ожидаемое значение не совпадает с реальным
+                .body("data", equalTo("some data"));
     }
 }
